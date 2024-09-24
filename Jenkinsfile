@@ -14,7 +14,7 @@ pipeline {
                 sh 'npm install snyk --save-dev'
                 echo 'Snyk Installed'
 
-                withCredentials([string(credentialsId: 'snyk_t', variable: 'SNYK_TOKEN')]) {
+                withCredentials([string(credentialsId: 'snyk_token', variable: 'SNYK_TOKEN')]) {
                     sh './node_modules/.bin/snyk auth $SNYK_TOKEN'
                     echo 'Snyk Authentication Finished'
                 }
